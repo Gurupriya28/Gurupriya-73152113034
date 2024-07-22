@@ -3,15 +3,34 @@ header{
     display: flex;
     justify-content: center;
     font-size: 25px;
-    background:rgba(180, 146, 146, 0.719);
     border: 1px solid black; 
+    background: rgb(93,34,195);
+background: linear-gradient(0deg, rgba(93,34,195,1) 0%, rgba(45,213,253,0.9332107843137255) 100%);
 }
-.sidebar{
+.container {
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap:10px;    
 }
-.sidebar:hover{
-    color: aqua;
+.sidebar {
+    width: 200px;
+    background-color: #bd03b3;
+    border: 2px solid rgb(36, 4, 36);
+    padding: 0;
+}
+.sidebar a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    border: 1px solid rgb(36, 4, 36);
+    color:black;
+    border-bottom: 1px solid #000;
+    text-align: center;
+}
+.sidebar a:hover {
+    background-color: #c7bbdd;
+}
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background: rgb(195,142,34);
+background: linear-gradient(0deg, rgba(195,142,34,1) 0%, rgba(45,175,253,0.9332107843137255) 100%);
 }
