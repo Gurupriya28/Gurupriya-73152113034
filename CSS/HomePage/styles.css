@@ -4,8 +4,8 @@ header{
     justify-content: center;
     font-size: 25px;
     border: 1px solid black; 
-    background: rgb(93,34,195);
-background: linear-gradient(0deg, rgba(93,34,195,1) 0%, rgba(45,213,253,0.9332107843137255) 100%);
+    background: rgb(82,34,195);
+    background: linear-gradient(0deg, rgba(82,34,195,0.8127626050420168) 0%, rgba(45,252,253,0.9332107843137255) 100%);
 }
 .container {
     display: flex;
