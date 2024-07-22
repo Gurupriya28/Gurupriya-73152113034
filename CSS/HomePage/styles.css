@@ -1,0 +1,17 @@
+header{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    background:rgba(180, 146, 146, 0.719);
+    border: 1px solid black; 
+}
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap:10px;    
+}
+.sidebar:hover{
+    color: aqua;
+}
