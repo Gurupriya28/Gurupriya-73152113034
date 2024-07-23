@@ -17,9 +17,11 @@
     }
     
     if(isPrime){
-        document.write("Prime");
+        // document.write("Prime");
+        document.getElementById("ResultDiv").innerHTML="Prime";
     } else {
-        document.write("Not Prime");
+        // document.write("Not Prime");
+        document.getElementById("ResultDiv").innerHTML="Not Prime";
     }
 }
     </script>
@@ -29,8 +31,8 @@
     <br>
     <button onclick="Prime()">Check</button>
     <br>
-    <!-- <div id="ResultDiv">
+    <div id="ResultDiv">
 
-    </div> -->
+    </div>
 </body>
 </html>

@@ -13,11 +13,13 @@
             string+=s[i];
         }
         if(string==s){
-            document.write("Palindrome");
-            
+            // document.write("Palindrome");
+            document.getElementById("ResultDiv").innerHTML="Palindrome";
+
         }
         else{
-            document.write("Not Palindrome");
+            // document.write("Not Palindrome");
+            document.getElementById("ResultDiv").innerHTML=" Not Palindrome";
         }
       
     }
@@ -26,6 +28,8 @@
 <body>
     Enter String:<input type="text" id="str" value="Enter String" onfocus="this.value=''"/>
     <button onclick="checkPalindrome()">Check</button>
+    <div id="ResultDiv">
 
+    </div>
 </body>
 </html>
