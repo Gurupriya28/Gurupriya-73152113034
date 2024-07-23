@@ -5,10 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        
+        function MyString(){
+           let s=document.getElementById("str").value;
+           let s1=document.getElementById("str1").value;
+           let length=s.length;
+           let char=s.charAt(2);
+           let part=s.slice(3,6);
+           let sub=s.substring(1,5);
+           let substr=s.substr(0,4);
+           let upper=s.toUpperCase();
+           let lower=s.toLowerCase();
+           let concat=s.concat(" " ,s1);
+           let trim=s.trim();
+           let start=s.trimStart();
+           let end=s.trimEnd();
+           let rep=s.repeat(2);
+           let text=s.replace("u","o");
+           let text1=s.replaceAll("Guru","Hari");
+           let arr=s.split("");
+
+        //    let result = `Length: ${length}<br>Character at index 2: ${char}<br>Substring from index 3 to 6: ${part}`;
+        //    document.getElementById("ResultDiv").innerHTML = result;
+        let result = `Length: ${length}<br>
+Character at index 2: ${char}<br>
+Substring from index 3 to 6: ${part}<br>
+Uppercase: ${upper}<br>
+Lowercase: ${lower}<br>
+Concatenation: ${concat}<br>
+Trimmed: ${trim}<br>
+Repeated twice: ${rep}<br>
+Text after replacing : ${text}<br>
+Text after replacing all '': ${text1}<br>
+Array of characters: ${arr.join(", ")}`;
+document.getElementById("ResultDiv").innerHTML = result;
+
+          
+        }
     </script>
 </head>
 <body>
+    Enter String<input type="text" id="str" />
+    <br>
+    <br>
+    Enter String2<input type="text" id="str1"/>
+    <br>
+    <button onclick="MyString()">Click</button>
+    <div id="ResultDiv">
+
+    </div>
     
 </body>
 </html>

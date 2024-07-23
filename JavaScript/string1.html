@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function MyString(){
+           let s=document.getElementById("str").value;
+           let s1=document.getElementById("str1").value;
+           document.write(s.length);
+           document.write("<br>")
+           document.write(s.charAt(2));
+           document.write("<br>")
+           document.write(s.slice(3,6));
+           document.write("<br>")
+           document.write(s.substring(1,5));
+           document.write("<br>")
+           document.write(s.substr(0,4));
+           document.write("<br>")
+           document.write(s.toUpperCase());
+           document.write("<br>")
+           document.write(s.toLowerCase());
+           document.write("<br>")
+           document.write(s.concat(" " ,s1));
+           document.write("<br>")
+           document.write(s.trim());
+           document.write("<br>")
+           document.write(s.repeat(2));
+           document.write("<br>")
+           document.write(s.replace("u","o"));
+           document.write("<br>")
+           document.write(s.replaceAll("Guru","Hari"));
+           document.write("<br>")
+           document.write(s.split(""));   
+        }
+    </script>
+</head>
+<body>
+    Enter String<input type="text" id="str" />
+    <br>
+    <br>
+    Enter String2<input type="text" id="str1"/>
+    <br>
+    <button onclick="MyString()">Click</button>
+    <div id="ResultDiv">
+
+    </div>
+    
+</body>
+</html>

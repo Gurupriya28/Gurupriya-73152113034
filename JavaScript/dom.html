@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Hello(){
+           document.write("Welcome to JavaScript");
+        }
+        function fact(){
+            let a=parseInt(document.getElementById("n").value);
+            let fact=1;
+            for(let i=1;i<=a;i++){
+                fact=fact*i;
+            }
+            document.getElementById("ResultDiv").innerHTML=fact;
+        }
+        function Mouseover(){
+            alert("Welcome");
+        }
+
+
+    </script>
+</head>
+<body onload="window.alert('PAGE LOADED');">
+   <button onclick="Hello()">Click Me</button>
+   <br><br>
+   Enter your text<input type="text" id="n" value="Enter num" onfocus="this.value=' '" onblur="fact()">
+   <br><br><br>
+    <p onmouseover="Mouseover()">Keep Cursor over Me</p>
+   <div id="ResultDiv">
+
+   </div>
+</body>
+</html>
