@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Prime(){
+    let num = parseInt(document.getElementById("n").value);
+    let isPrime = true;
+    
+    for(let i = 2; i < num; i++){
+        if(num % i == 0){
+            isPrime = false;
+            break;
+        }
+    }
+    
+    if(isPrime){
+        document.write("Prime");
+    } else {
+        document.write("Not Prime");
+    }
+}
+    </script>
+</head>
+<body>
+    Enter your number<input type="text" id="n" value="Enter Number" onfocus="this.value=' '"/>
+    <br>
+    <button onclick="Prime()">Check</button>
+    <br>
+    <!-- <div id="ResultDiv">
+
+    </div> -->
+</body>
+</html>
