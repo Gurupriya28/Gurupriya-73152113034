@@ -1,3 +1,4 @@
+
 const button = document.querySelectorAll("button");
 const result = document.getElementById("result");
 
@@ -19,12 +20,11 @@ function clearResult() {
 }
 
 function calculateResult() {
-  try {
-    const calculation = new Function('return ' + result.value)();
+
+    // const calculation = new Function('return ' + result.value)();
+    const calculation=eval(result.value);
     result.value = calculation;
-  } catch (error) {
-    result.value = 'Error';
-  }
+
 }
 
 function appendValue(buttonValue) {
