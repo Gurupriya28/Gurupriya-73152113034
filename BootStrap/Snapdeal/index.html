@@ -3,76 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-   <link rel="stylesheet" href="styles.css">
+    <title>Online Shopping Site India - Shopping</title>
+    <link
+      rel="icon"
+      href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAjCAYAAAD8BaggAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAhdEVYdENyZWF0aW9uIFRpbWUAMjAyMToxMjoxOCAxODo1NDoyORdQ/OUAAAKdSURBVFhH7Zc9TFNRFMdPi7WEV2yJX7j4EVxcFB1dxEEGp+LiogEHEzdqQoybZVZTnGQTxVWrqy644KqMJiomJAajtNVCIAjY/+1p+u579757X1uaDv6Wd897fS//c+45555Glmh4hzqIKF87hv+CTHScoFBJ3TczQT2jl9iyZ7tYpp8X79Dmh898R48xQpHuvbTn1FGxXpt5I65hiaYStD9/j61gjIJ6716lg/M58dGNuQVaf/2en4Sj6/hh2pe9zpYeoyAnMyLEJKduCbuYeUzbpVWxDosznhbCgggU1DM2TNGkU11Xcic+dJq2FpdpdSov7oUFjpmiZBAkJ3AyV43S7+wsbX37IdZhqTmmQysoNjhA8Qvyi7iHqAFsXaPUHFOhLXtdiaOEl0+Miis8jQ+d4Sd1IimHEuMjbKkp3HiorFqlIOz1kcILtvyUH+WplJlmS82Bufu+CLtxO+ZGuWXe3PEC703VYhIMp3uz19iqoxSUyFzhlZ6+JxO8UoOuvPb0LVtq4Bjy0o1PUHf6PHUdO8SWHuQPfhsEomTqWd4E9wlyuIpsSFU+htDrQH5AVFCLiJ0dkL4hJTXyov/rM7bs+DP5XPSlViEJwvFgKlcviEJh7AHtFBs7TrCl7ilAEtS/OGuVP60Egr6n6kUk5ZC3J7QDRNeNJKjUxHHQCMi/9VfzbFWRBDUz74Rl492Cshh8Zd/MoWkL2sBKepItGZ8gzDsI5W6BJP6Vzmrz1ScIlCsDWKPzjgk0yqBhXykI6lvZ7GrgbDP9UVAKAngRidcqNj9+8ZW4Cq0gYBohbKnljQ2BgmxGCBtWKmJQLDYECgI2I0QQpdvTor/Zop2p3cTOnSTn5mW27Pn7aYnKuZds2WElqJ0Yt6y9EP0DNf8Awn9TCS0AAAAASUVORK5CYII="
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-4 header-item">
-                Brand Walli Quality, Bazzar Walli Deal!
+    <header>
+        <nav class="topnav">
+          <h2>Brand Waali Quality, Bazaar Waali Deal!</h2>
+          <ul>
+            <li><a href="">Impact@Snapdeal</a></li>
+            <li><a href="">Gift Cards</a></li>
+            <li><a href="">Help Center</a></li>
+            <li><a href="">Sell On Snapdeal</a></li>
+            <li>
+              <a href=""> <i class="fas fa-mobile-alt"></i> Download App</a>
+            </li>
+          </ul>
+        </nav>
+  
+        <nav class="mainnav">
+          <div class="logoimg">
+            <img
+              src="https://i3.sdlcdn.com/img/snapdeal/darwin/logo/sdLatestLogo.svg"
+              alt=""
+            />
+          </div>
+          <div class="search">
+            <input type="text" placeholder="Search products & brands" />
+            <button class="btn"><i class="fas fa-search"></i> Search</button>
+          </div>
+          <div class="moreitemslist">
+            <div class="moreitems1">
+              <a href="">Cart <i class="fas fa-shopping-cart"></i></a>
             </div>
-            <div class="col header-item">
-                <a href="#">Impact@SnapDeal</a>
+            <div class="moreitems2">
+              <a href="" id="user_name"
+                >Sign In <i class="fas fa-user-circle"></i
+              ></a>
+  
+              <div class="signsub">
+                <ul>
+                  <li><i class="far fa-user"></i>Your Account</li>
+                  <li><i class="fas fa-box-open"></i>Your Orders</li>
+                  <li><i class="far fa-heart"></i>Shortlist</li>
+                  <li><i class="fas fa-hand-holding-usd"></i>SD Cash</li>
+                </ul>
+  
+                <hr />
+  
+                <p>If you are a new user</p>
+  
+                <a href="signin.html"> <h3>Register</h3></a>
+  
+                <a href="signup.html" id="login">Login</a>
+              </div>
             </div>
-            <div class="col header-item">
-                <a href="#">Help Center</a>
-            </div>
-            <div class="col header-item">
-                <a href="#">Sell on SnapDeal</a>
-            </div>
-            <div class="col header-item">
-                <i class="fa fa-mobile-phone" style="font-size: 20px;"></i>
-                <a href="#">Download App</a>
-            </div>
-            <div class="col header-item">
-                <a href="#">Donate For Elderly</a>
-            </div>
-        </div>
-        <div class="row" style="background-color: red; padding: 15px;">
-            <div class="col d-flex align-items-center">
-                <a href="#"><img src="" alt="Snapdeal Logo" class="logo-img"></a>
-                <input type="text" class="search-bar" placeholder="Search products & brands">
-                <button type="submit" class="search-button d-flex align-items-center">
-                    <i class="fa fa-search"></i>
-                    <span>Search</span>
-                </button>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid mt-4">
-        <div class="row">
-            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-                <div class="sidebar-sticky">
-                    <ul class="nav flex-column">
-                        <h6 class="text-center p-3"><small>TOP CATEGORIES</small></h6>
-                        <li class="nav-item"><a class="nav-link" href="#">Men's Fashion</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Women's Fashion</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Home & Kitchen</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Toys, Kids' Fashion & more</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Beauty, Health & Daily ...</a></li>
-                    </ul>
-                    <ul class="nav flex-column">
-                        <h6 class="text-center p-2"><small>MORE CATEGORIES</small></h6>
-                        <li class="nav-item"><a class="nav-link" href="#">Automotives</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Mobile & Accessories</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Electronics</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Sports, Fitness & Outdoor</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Computers & Gaming</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Books, Media & Music</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Hobbies</a></li>
-
-                    </ul>
-            
-
-
-
-
-                   
-                </div>
-            </nav>
-</body>
+          </div>
+        </nav>
+      </header>
+      <div class="container">
+        <div class="leftside">
+          <ul>
+            <div class="topCat">TOP CATEGORIES</div>
+            <li id="list1">
+              <img
+                src="https://n3.sdlcdn.com/imgs/d/h/3/Discount_Right_icon-f5105.png"
+                alt=""
+              />
+              <span>All Offers</span>
+              <li id="list2">
+                <img
+                  src="https://i1.sdlcdn.com/img/leftnavicon09/30x30mobile2.png"
+                  alt=""
+                />
+                <span>Mobile & Tablets</span>
+                <li id="list3">
+                    <img
+                      src="https://n2.sdlcdn.com/imgs/d/2/c/Electronic-6212c.png"
+                      alt=""
+                    />
+                    <span>Electronics</span>
+                    <li id="list4">
+                        <img
+                          src="https://n2.sdlcdn.com/imgs/d/2/c/ComputerGaming-a02cf.png"
+                          alt=""
+                        />
+                        <span>Computers & Gaming</span>
+                        <li id="list5">
+                            <img
+                              src="https://n2.sdlcdn.com/imgs/c/0/x/Homekitchenfurnishing-3eda1.jpg"
+                              alt=""
+                            />
+                            <span>Home & Kitchen</span>
+                            <li class="moreCat"><p>MORE CATEGORIES</p></li>
+                            <div class="moreli">
+                              <li><span>Men's Fashion</span></li>
+                              <li><span>Women's Fashion</span></li>
+                              <li><span>Toys,kids Fashion & More</span></li>
+                              <li><span>Beauty,Health & Daily Needs</span></li>
+                              <li><span>Sports,Fitness & Outdoor</span></li>
+                              <li><span>Car & Motorbike</span></li>
+                              <li><span>Hobbies</span></li>
+                              <li><span>Books,Media & Music</span></li>
+                              <li><a href="">See All Categories</a></li>
+                            </div>
+                            <li class="moreCat"><p>TRENDING SEARCHES</p></li>
+                            <div class="moreli">
+                              <li>
+                                <span> <i class="fas fa-search"></i> Hair Straightener</span>
+                              </li>
+                              <li>
+                                <span> <i class="fas fa-search"></i> Makeup Kit</span>
+                              </li>
+                              <li>
+                                <span> <i class="fas fa-search"></i> Hookah</span>
+                              </li>
+                              <li>
+                                <span> <i class="fas fa-search"></i> Sling Bag</span>
+                              </li>
+                              <li>
+                                <span> <i class="fas fa-search"></i> Bluetooth Speaker</span>
+                              </li>
+                            </div>
+                          </ul>
+                        </div>
+                    
+                
 </html>
