@@ -1,4 +1,4 @@
-<h1>Interpolation Example</h1>
+<!-- <h1>Interpolation Example</h1>
 <br>
 <b>
   Name :{{name}}
@@ -17,5 +17,32 @@
   <img [src]="imagePath" width="300" height="200" />
   <br>
   <button (click)="changeImage()">image</button>
+  <br><br>
+  <h1>Two way Data Binding</h1>
+  <br>
+  Enter Your First Name<input type="text" [(ngModel)]="fname"/>
+  <br>
+  <b>Welcome {{fname}}</b>
+</b> -->
 
-</b>
+<h1 [ngClass]="MyClass">Structural and Attribute Directives Example</h1>
+<br>
+<button (click)="changeFlag()">Show or Hide Div</button>
+<br><br>
+<div *ngIf="flag" [ngStyle]="myStyle">
+  <br>
+  <ul>
+    <li *ngFor="let vec of vehicles" (click)="setSelectedItem(vec)">{{vec}}</li>
+  </ul>
+  <br>
+  <b>You have selected:{{selectedVehicle}}</b>
+  <br>
+  <div [ngSwitch]="selectedVehicle">
+    <font color="green" *ngSwitchCase="'Twowheelers'">Bike</font>
+    <font color="green" *ngSwitchCase="'ThreeWheeler'">Auto</font>
+    <font color="green" *ngSwitchCase="'FourWheeler'">Car</font>
+    <font color="green" *ngSwitchDefault>Invalid</font>
+  </div>
+  <br>
+  <button (click)="changeStyle()">Change</button>
+</div>
