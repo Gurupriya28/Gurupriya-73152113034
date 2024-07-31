@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CalculatorService } from './calculator.service';
 
 @Component({
   selector: 'app-root',
@@ -32,26 +33,33 @@ export class AppComponent {
 // changeImage(){
 //   this.imagePath="https://miro.medium.com/v2/resize:fit:720/format:webp/1*bMgQ8MhbnQexpqHgIgBJPA.png"
 // }
-   flag:boolean;
-   vehicles:string[];
-   selectedVehicle: string;
-   myStyle:{};
-   MyClass:{};
+  //  flag:boolean;
+  //  vehicles:string[];
+  //  selectedVehicle: string;
+  //  myStyle:{};
+  //  MyClass:{};
 
-   constructor(){
-    this.flag=true;
-    this.vehicles=["Twowheelers","ThreeWheeler","FourWheeler"];
-    this.selectedVehicle="";
-    this.myStyle={'width' : '50%' , 'border':'2px solid green', 'border-radius' :'25px'};
-    this.MyClass="MyClass1";
-   }
-   changeFlag(){
-    this.flag=! this.flag;
-   }
-   setSelectedItem(vec: string){
-      this.selectedVehicle=vec;
-   }
-   changeStyle(){
-    this.myStyle={'width' : '40%' , 'border':'2px solid red', 'border-radius' :'25px'};
-   }
+  //  constructor(){
+  //   this.flag=true;
+  //   this.vehicles=["Twowheelers","ThreeWheeler","FourWheeler"];
+  //   this.selectedVehicle="";
+  //   this.myStyle={'width' : '50%' , 'border':'2px solid green', 'border-radius' :'25px'};
+  //   this.MyClass="MyClass1";
+  //  }
+  //  changeFlag(){
+  //   this.flag=! this.flag;
+  //  }
+  //  setSelectedItem(vec: string){
+  //     this.selectedVehicle=vec;
+  //  }
+  //  changeStyle(){
+  //   this.myStyle={'width' : '40%' , 'border':'2px solid red', 'border-radius' :'25px'};
+  //  }
+
+  sum:number;
+  constructor(private calc:CalculatorService){
+    this.sum=calc.getAddition(10,20);
+    
+  }
+  
 }
