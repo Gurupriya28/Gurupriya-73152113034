@@ -10,9 +10,12 @@ import { FactorialService } from '../factorial.service';
 export class ChildComponent {
      sum:number;
      sub:number;
+     fact:number;
 
-     constructor(private calc:CalculatorService,private fact: FactorialService){
+     constructor(private calc:CalculatorService){
       this.sum=calc.getAddition(10,20);
       this.sub=calc.getSubraction(10,20);
+      this.fact=calc.getFactorial(6);
+
      }
 }

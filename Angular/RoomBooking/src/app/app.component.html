@@ -1,23 +1,30 @@
-
-<html>
-<head>
-	<title>Slide Navbar</title>
-</head>
 <body>
-	<div class="main">  	
-		<input type="checkbox" id="chk">
 
-			<div class="signup">
-				<form>
-					<label for="chk">Sign up</label>
-					<input type="text" name="txt" placeholder="User name" >
-					<input type="email" name="email" placeholder="Email">
-					<input type="password" name="pswd" placeholder="Password">
-					<button>Sign up</button>
-				</form>
-			</div>
-
-		
-	</div>
+<nav>
+  <div class="navbar">
+    <div class="logo"><a href="#">Meeting Room Booking System</a></div>
+  </div>
+</nav>
+<div class="row">
+  <div class="column">
+    <h2>Details</h2>
+    <label for="room">Room Type:</label>
+    <input type="text" placeholder="RoomType" id="room">
+    <label for="name">Booked by:</label>
+    <input type="text" placeholder="Booked By" id="name">
+    <label for="period">Booked on:</label>
+    <input type="datetime-local" placeholder="TimePeriod" id="period">
+    <label for="days">Duration:</label>
+    <input type="number" id="days" placeholder="No Of Days" min="1" max="5">
+    <label for="amount">Amount:</label>
+    <input type="text" placeholder="Amount" id="amount">
+    <button type="submit">Save</button>
+    <button type="submit">Delete</button>
+    <button type="reset">Reset</button>
+  </div>
+  <div class="column">
+    <h2>Data Entries</h2>
+    <p></p>
+  </div>
+</div>
 </body>
-</html>

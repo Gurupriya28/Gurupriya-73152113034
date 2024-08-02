@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "RoomBooking": {
+    "EMS": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/room-booking",
+            "outputPath": "dist/ems",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -74,10 +74,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "RoomBooking:build:production"
+              "buildTarget": "EMS:build:production"
             },
             "development": {
-              "buildTarget": "RoomBooking:build:development"
+              "buildTarget": "EMS:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -109,6 +109,6 @@
     }
   },
   "cli": {
-    "analytics": "56f031c8-b630-48e3-a86d-5b6443b07c42"
+    "analytics": "8fbb5b40-d329-4728-ad9b-d005bfc770b9"
   }
 }
