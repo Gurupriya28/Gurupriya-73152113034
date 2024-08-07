@@ -1,0 +1,202 @@
+SQL*Plus: Release 11.2.0.2.0 Production on Wed Aug 7 10:42:23 2024
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+SQL> connect system
+Enter password:
+Connected.
+SQL> CREATE TABLE CLIENT_MASTER (
+  2      Client_No VARCHAR(10) ,
+  3      Name VARCHAR(50),
+  4      City VARCHAR(50),
+  5      Pincode INT,
+  6      Bal_due DECIMAL(10, 2)
+  7  );
+
+Table created.
+
+SQL> INSERT INTO CLIENT_MASTER  VALUES
+  2  ('C00001', 'SMITHA JAIN', 'Mumbai', 400054, 15000);
+
+1 row created.
+
+SQL> INSERT INTO CLIENT_MASTER  VALUES
+  2  ('C00002', 'VANDANA RAO', 'Chennai', 780001, 0);
+
+1 row created.
+
+SQL> INSERT INTO CLIENT_MASTER  VALUES
+  2  ('C00003', 'PREM PUJARI', 'Mumbai', 400057, 5000);
+
+1 row created.
+
+SQL> INSERT INTO CLIENT_MASTER  VALUES
+  2  ('C00004', 'BASU NATH', 'Mumbai', 400056, 0);
+
+1 row created.
+
+SQL> INSERT INTO CLIENT_MASTER  VALUES
+  2  ('C00005', 'RAVI SHANKAR', 'Delhi', 100001, 2000);
+
+1 row created.
+
+SQL> INSERT INTO CLIENT_MASTER  VALUES
+  2  ('C00006', 'ROOPA', 'Mumbai', 400050, 0);
+
+1 row created.
+
+SQL> CREATE TABLE SALE_ORDER (
+  2      Order_No VARCHAR(10) ,
+  3      Order_Date DATE,
+  4      Client_No VARCHAR(10),
+  5      Salesman_No VARCHAR(10),
+  6      Dely_Date DATE,
+  7      Order_Status VARCHAR(20)
+  8  );
+
+Table created.
+
+SQL> INSERT INTO Sale_Order (Order_No, Order_Date, Client_No, Salesman_No, Dely_Date, Order_Status) VALUES
+  2  ('O19001', '12-Jan-13', 'C00001', 'S00001', '20-Jan-13', 'In process');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO Sale_Order (Order_No, Order_Date, Client_No, Salesman_No, Dely_Date, Order_Status) VALUES
+  2  ('O19002', '25-Jan-13', 'C00002', 'S00002', '27-Jan-13', 'Cancelled');
+
+1 row created.
+
+SQL> INSERT INTO Sale_Order (Order_No, Order_Date, Client_No, Salesman_No, Dely_Date, Order_Status) VALUES
+  2  ('O46865', '18-Feb-13', 'C00003', 'S00003', '20-Feb-13', 'Fulfilled');
+
+1 row created.
+
+SQL> INSERT INTO Sale_Order (Order_No, Order_Date, Client_No, Salesman_No, Dely_Date, Order_Status) VALUES
+  2  ('O19003', '03-Apr-13', 'C00001', 'S00001', '07-Apr-13', 'Fulfilled');
+
+1 row created.
+
+SQL> INSERT INTO Sale_Order (Order_No, Order_Date, Client_No, Salesman_No, Dely_Date, Order_Status) VALUES
+  2  ('O46866', '20-May-13', 'C00004', 'S00002', '07-Apr-13', 'Cancelled');
+
+1 row created.
+
+SQL> INSERT INTO Sale_Order (Order_No, Order_Date, Client_No, Salesman_No, Dely_Date, Order_Status) VALUES
+  2  ('O19008', '24-May-13', 'C00005', 'S00004', '26-May-13', 'In process');
+
+1 row created.
+
+SQL> SELECT * FROM CLIENT_MASTER
+  2  WHERE Bal_due = 0;
+
+CLIENT_NO  NAME
+---------- --------------------------------------------------
+CITY                                                  PINCODE    BAL_DUE
+-------------------------------------------------- ---------- ----------
+C00002     VANDANA RAO
+Chennai                                                780001          0
+
+C00004     BASU NATH
+Mumbai                                                 400056          0
+
+C00006     ROOPA
+Mumbai                                                 400050          0
+
+
+SQL> UPDATE CLIENT_MASTER
+  2  SET City = 'Jaipur'
+  3  WHERE Client_No = 'C00004';
+
+1 row updated.
+
+SQL>
+SQL> SELECT * FROM CLIENT_MASTER
+  2  WHERE City = 'Mumbai';
+
+CLIENT_NO  NAME
+---------- --------------------------------------------------
+CITY                                                  PINCODE    BAL_DUE
+-------------------------------------------------- ---------- ----------
+C00001     SMITHA JAIN
+Mumbai                                                 400054      15000
+
+C00003     PREM PUJARI
+Mumbai                                                 400057       5000
+
+C00006     ROOPA
+Mumbai                                                 400050          0
+
+
+SQL>
+SQL> select concat(Name,'live in the city of',City) as sentence from CLIENT_MASTER;
+select concat(Name,'live in the city of',City) as sentence from CLIENT_MASTER
+       *
+ERROR at line 1:
+ORA-00909: invalid number of arguments
+
+
+SQL> select CONCAT(Name,'live in the city of',City) as sentence from CLIENT_MASTER;
+select CONCAT(Name,'live in the city of',City) as sentence from CLIENT_MASTER
+       *
+ERROR at line 1:
+ORA-00909: invalid number of arguments
+
+
+SQL> select(Name||'live in the city of'||City) as sentence from CLIENT_MASTER;
+
+SENTENCE
+--------------------------------------------------------------------------------
+SMITHA JAINlive in the city ofMumbai
+VANDANA RAOlive in the city ofChennai
+PREM PUJARIlive in the city ofMumbai
+BASU NATHlive in the city ofJaipur
+RAVI SHANKARlive in the city ofDelhi
+ROOPAlive in the city ofMumbai
+
+6 rows selected.
+
+SQL> select ( Name || ' live in the city of ' || City) as sentence from CLIENT_MASTER;
+
+SENTENCE
+--------------------------------------------------------------------------------
+SMITHA JAIN live in the city of Mumbai
+VANDANA RAO live in the city of Chennai
+PREM PUJARI live in the city of Mumbai
+BASU NATH live in the city of Jaipur
+RAVI SHANKAR live in the city of Delhi
+ROOPA live in the city of Mumbai
+
+6 rows selected.
+
+SQL> select Name,City,Pincode from CLIENT_MASTER inner join SALE_ORDER on CLIENT_MASTER.Client_No=SALE_ORDER.Client_No where Order_No in (‘O19003’ , ‘O19002’);
+select Name,City,Pincode from CLIENT_MASTER inner join SALE_ORDER on CLIENT_MASTER.Client_No=SALE_ORDER.Client_No where Order_No in (`O19003' , `O19002')
+                                                                                                                                     *
+ERROR at line 1:
+ORA-00911: invalid character
+
+
+SQL> select Name,City,Pincode from CLIENT_MASTER inner join SALE_ORDER on CLIENT_MASTER.Client_No=SALE_ORDER.Client_No where Order_No in ('O19003' , 'O19002');
+
+NAME
+--------------------------------------------------
+CITY                                                  PINCODE
+-------------------------------------------------- ----------
+SMITHA JAIN
+Mumbai                                                 400054
+
+VANDANA RAO
+Chennai                                                780001
+
+
+SQL> select CLIENT_MASTER.Client_No,Name,City,Pincode from CLIENT_MASTER,SALE_ORDER where CLIENT_MASTER.Client_No=SALE_ORDER.Client_No and Order_Status='In process';
+
+CLIENT_NO  NAME
+---------- --------------------------------------------------
+CITY                                                  PINCODE
+-------------------------------------------------- ----------
+C00001     SMITHA JAIN
+Mumbai                                                 400054
+
+C00005     RAVI SHANKAR
+Delhi                                                  100001

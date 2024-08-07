@@ -1,0 +1,435 @@
+
+SQL> create table Employee (Emp_id number(10), Emp_Name varchar(20) , Emp_Salary number(10));
+
+Table created.
+
+SQL> insert into values (101 , 'Abi' , 5000);
+insert into values (101 , 'Abi' , 5000)
+            *
+ERROR at line 1:
+ORA-00903: invalid table name
+
+
+SQL> insert into Employee values (101 , 'Abi' , 5000);
+
+1 row created.
+
+SQL> insert into Employee values (102 , 'Banu' , 6000);
+
+1 row created.
+
+SQL> insert into Employee values (103 , 'Kavi' , 7000);
+
+1 row created.
+
+SQL> insert into Employee values (104 , 'Meena' , 4000);
+
+1 row created.
+
+SQL> insert into Employee values (105 , 'Rahul' , 6000);
+
+1 row created.
+
+SQL> select * from Employee where Emp_id in (101,102,106);
+
+    EMP_ID EMP_NAME             EMP_SALARY
+---------- -------------------- ----------
+       101 Abi                        5000
+       102 Banu                       6000
+
+SQL> select * from Employee where Emp_id not in (101,102,106);
+
+    EMP_ID EMP_NAME             EMP_SALARY
+---------- -------------------- ----------
+       103 Kavi                       7000
+       104 Meena                      4000
+       105 Rahul                      6000
+
+SQL> select * from Employee where Emp_Salary between 4000 and 6000;
+
+    EMP_ID EMP_NAME             EMP_SALARY
+---------- -------------------- ----------
+       101 Abi                        5000
+       102 Banu                       6000
+       104 Meena                      4000
+       105 Rahul                      6000
+
+SQL> select * from Employee where Emp_Salary not between 4000 and 6000;
+
+    EMP_ID EMP_NAME             EMP_SALARY
+---------- -------------------- ----------
+       103 Kavi                       7000
+
+SQL> select * from Employee where Emp_Salary between 4000 and 7000;
+
+    EMP_ID EMP_NAME             EMP_SALARY
+---------- -------------------- ----------
+       101 Abi                        5000
+       102 Banu                       6000
+       103 Kavi                       7000
+       104 Meena                      4000
+       105 Rahul                      6000
+
+SQL> select * from Employee where Emp_Salary not between 5000 and 6000;
+
+    EMP_ID EMP_NAME             EMP_SALARY
+---------- -------------------- ----------
+       103 Kavi                       7000
+       104 Meena                      4000
+
+SQL> select * from Employee;
+
+    EMP_ID EMP_NAME             EMP_SALARY
+---------- -------------------- ----------
+       101 Abi                        5000
+       102 Banu                       6000
+       103 Kavi                       7000
+       104 Meena                      4000
+       105 Rahul                      6000
+
+SQL> select * from Employee where Emp_id in (101,103,105) and Emp_Salary>5000;
+
+    EMP_ID EMP_NAME             EMP_SALARY
+---------- -------------------- ----------
+       103 Kavi                       7000
+       105 Rahul                      6000
+
+SQL> select * from Employee where Emp_id in (101,103,105) or Emp_Salary>5000;
+
+    EMP_ID EMP_NAME             EMP_SALARY
+---------- -------------------- ----------
+       101 Abi                        5000
+       102 Banu                       6000
+       103 Kavi                       7000
+       105 Rahul                      6000
+
+SQL> select * from Employee where Emp_id > 103 and Emp_Salary<4000;
+
+no rows selected
+
+SQL> select * from Employee where Emp_id > 103 or Emp_Salary<4000;
+
+    EMP_ID EMP_NAME             EMP_SALARY
+---------- -------------------- ----------
+       104 Meena                      4000
+       105 Rahul                      6000
+
+SQL> insert into Employee (Emp_id , Emp_Salary) values (106 , 3000);
+
+1 row created.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> select * from Employee;
+
+    EMP_ID EMP_NAME             EMP_SALARY
+---------- -------------------- ----------
+       101 Abi                        5000
+       102 Banu                       6000
+       103 Kavi                       7000
+       104 Meena                      4000
+       105 Rahul                      6000
+       106                            3000
+
+6 rows selected.
+
+SQL> select * from Employee where Emp_Name is null;
+
+    EMP_ID EMP_NAME             EMP_SALARY
+---------- -------------------- ----------
+       106                            3000
+
+SQL> select * from Employee where Emp_Name is not null;
+
+    EMP_ID EMP_NAME             EMP_SALARY
+---------- -------------------- ----------
+       101 Abi                        5000
+       102 Banu                       6000
+       103 Kavi                       7000
+       104 Meena                      4000
+       105 Rahul                      6000
+
+SQL> select * from Employee where Emp_Name like 'A%';
+
+    EMP_ID EMP_NAME             EMP_SALARY
+---------- -------------------- ----------
+       101 Abi                        5000
+
+SQL> select * from Employee where Emp_Name like '_a%';
+
+    EMP_ID EMP_NAME             EMP_SALARY
+---------- -------------------- ----------
+       102 Banu                       6000
+       103 Kavi                       7000
+       105 Rahul                      6000
+
+SQL> select * from Employee where Emp_Name like '__a%';
+
+no rows selected
+
+SQL> select * from Employee where Emp_Name like '__n%';
+
+    EMP_ID EMP_NAME             EMP_SALARY
+---------- -------------------- ----------
+       102 Banu                       6000
+
+SQL> select * from Employee where Emp_Name like '%i';
+
+    EMP_ID EMP_NAME             EMP_SALARY
+---------- -------------------- ----------
+       101 Abi                        5000
+       103 Kavi                       7000
+
+SQL> select * from Employee where Emp_Name like '%a%';
+
+    EMP_ID EMP_NAME             EMP_SALARY
+---------- -------------------- ----------
+       102 Banu                       6000
+       103 Kavi                       7000
+       104 Meena                      4000
+       105 Rahul                      6000
+
+SQL> select * from Employee where Emp_Name not like '%a%';
+
+    EMP_ID EMP_NAME             EMP_SALARY
+---------- -------------------- ----------
+       101 Abi                        5000
+
+SQL> select * from Employee order by Emp_id;
+
+    EMP_ID EMP_NAME             EMP_SALARY
+---------- -------------------- ----------
+       101 Abi                        5000
+       102 Banu                       6000
+       103 Kavi                       7000
+       104 Meena                      4000
+       105 Rahul                      6000
+       106                            3000
+
+6 rows selected.
+
+SQL> select * from Employee order by Emp_Name;
+
+    EMP_ID EMP_NAME             EMP_SALARY
+---------- -------------------- ----------
+       101 Abi                        5000
+       102 Banu                       6000
+       103 Kavi                       7000
+       104 Meena                      4000
+       105 Rahul                      6000
+       106                            3000
+
+6 rows selected.
+
+SQL> select * from Employee order by Emp_id desc;
+
+    EMP_ID EMP_NAME             EMP_SALARY
+---------- -------------------- ----------
+       106                            3000
+       105 Rahul                      6000
+       104 Meena                      4000
+       103 Kavi                       7000
+       102 Banu                       6000
+       101 Abi                        5000
+
+6 rows selected.
+
+SQL> select * from Employee order by Emp_Name desc;
+
+    EMP_ID EMP_NAME             EMP_SALARY
+---------- -------------------- ----------
+       106                            3000
+       105 Rahul                      6000
+       104 Meena                      4000
+       103 Kavi                       7000
+       102 Banu                       6000
+       101 Abi                        5000
+
+6 rows selected.
+
+SQL> select * from Employee order by Emp_Salary desc;
+
+    EMP_ID EMP_NAME             EMP_SALARY
+---------- -------------------- ----------
+       103 Kavi                       7000
+       102 Banu                       6000
+       105 Rahul                      6000
+       101 Abi                        5000
+       104 Meena                      4000
+       106                            3000
+
+6 rows selected.
+
+SQL> alter table Employee add DOJ date;
+
+Table altered.
+
+SQL> select * from Employee;
+
+    EMP_ID EMP_NAME             EMP_SALARY DOJ
+---------- -------------------- ---------- ---------
+       101 Abi                        5000
+       102 Banu                       6000
+       103 Kavi                       7000
+       104 Meena                      4000
+       105 Rahul                      6000
+       106                            3000
+
+6 rows selected.
+
+SQL> update Employee set DOJ=sysdate where Emp_id=103;
+
+1 row updated.
+
+SQL> update Employee set DOJ='05-Aug-24' where Emp_id=(101,105);
+update Employee set DOJ='05-Aug-24' where Emp_id=(101,105)
+                                                *
+ERROR at line 1:
+ORA-01797: this operator must be followed by ANY or ALL
+
+
+SQL> update Employee set DOJ='05-Aug-24' where Emp_id in (101,105);
+
+2 rows updated.
+
+SQL> select * from Employee;
+
+    EMP_ID EMP_NAME             EMP_SALARY DOJ
+---------- -------------------- ---------- ---------
+       101 Abi                        5000 05-AUG-24
+       102 Banu                       6000
+       103 Kavi                       7000 07-AUG-24
+       104 Meena                      4000
+       105 Rahul                      6000 05-AUG-24
+       106                            3000
+
+6 rows selected.
+
+SQL> update Employee set DOJ='02-Aug-24' where Emp_id=(102,104);
+update Employee set DOJ='02-Aug-24' where Emp_id=(102,104)
+                                                *
+ERROR at line 1:
+ORA-01797: this operator must be followed by ANY or ALL
+
+
+SQL> update Employee set DOJ='05-Aug-24' where Emp_id in (102,104);
+
+2 rows updated.
+
+SQL> select * from Employee;
+
+    EMP_ID EMP_NAME             EMP_SALARY DOJ
+---------- -------------------- ---------- ---------
+       101 Abi                        5000 05-AUG-24
+       102 Banu                       6000 05-AUG-24
+       103 Kavi                       7000 07-AUG-24
+       104 Meena                      4000 05-AUG-24
+       105 Rahul                      6000 05-AUG-24
+       106                            3000
+
+6 rows selected.
+
+SQL> update Employee set DOJ='02-Aug-24' where Emp_id in (102,104);
+
+2 rows updated.
+
+SQL> select * from Employee;
+
+    EMP_ID EMP_NAME             EMP_SALARY DOJ
+---------- -------------------- ---------- ---------
+       101 Abi                        5000 05-AUG-24
+       102 Banu                       6000 02-AUG-24
+       103 Kavi                       7000 07-AUG-24
+       104 Meena                      4000 02-AUG-24
+       105 Rahul                      6000 05-AUG-24
+       106                            3000
+
+6 rows selected.
+
+SQL> alter table Employee drop column DOJ;
+
+Table altered.
+
+SQL> select * from Employee;
+
+    EMP_ID EMP_NAME             EMP_SALARY
+---------- -------------------- ----------
+       101 Abi                        5000
+       102 Banu                       6000
+       103 Kavi                       7000
+       104 Meena                      4000
+       105 Rahul                      6000
+       106                            3000
+
+6 rows selected.
+
+SQL> alter table Employee modify Emp_Salary number(12);
+
+Table altered.
+
+SQL> desc Employee;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMP_ID                                             NUMBER(10)
+ EMP_NAME                                           VARCHAR2(20)
+ EMP_SALARY                                         NUMBER(12)
+
+SQL> alter table Employee rename column Emp_Salary to Salary;
+
+Table altered.
+
+SQL> select * from Employee;
+
+    EMP_ID EMP_NAME                 SALARY
+---------- -------------------- ----------
+       101 Abi                        5000
+       102 Banu                       6000
+       103 Kavi                       7000
+       104 Meena                      4000
+       105 Rahul                      6000
+       106                            3000
+
+6 rows selected.
+
+SQL> rename Employee to Emp;
+
+Table renamed.
+
+SQL> select * from Employee;
+select * from Employee
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> select * from Emp;
+
+    EMP_ID EMP_NAME                 SALARY
+---------- -------------------- ----------
+       101 Abi                        5000
+       102 Banu                       6000
+       103 Kavi                       7000
+       104 Meena                      4000
+       105 Rahul                      6000
+       106                            3000
+
+6 rows selected.
+
+SQL> alter table Emp rename to Employee;
+
+Table altered.
+
+SQL> select * from Employee;
+
+    EMP_ID EMP_NAME                 SALARY
+---------- -------------------- ----------
+       101 Abi                        5000
+       102 Banu                       6000
+       103 Kavi                       7000
+       104 Meena                      4000
+       105 Rahul                      6000
+       106                            3000
+
+6 rows selected.
