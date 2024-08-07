@@ -2,13 +2,13 @@ create table tbl_employee1(eid number(5),ename varchar2(20),esalary number(5));
 
 desc tbl_employee1;
 
-insert into tbl_employee1 values(101,'Glad',7000);
+insert into tbl_employee1 values(101,'Priya',7000);
 
-insert into tbl_employee1 values(102,'Son',10000);
+insert into tbl_employee1 values(102,'Kishore',10000);
 
-insert into tbl_employee1 values(103,'Ace',8000);
+insert into tbl_employee1 values(103,'Rahul',8000);
 
-insert into tbl_employee1 values(104,'God',8500);
+insert into tbl_employee1 values(104,'Mouni',8500);
 
 commit;
 
@@ -32,6 +32,6 @@ update tbl_employee1 set esalary=40000 where eid=102;
 
 select * from tbl_employee1;
 
-update tbl_employee1 set esalary=40000,ename='God' where eid=104;
+update tbl_employee1 set esalary=40000,ename='Mouni' where eid=104;
 
 delete from tbl_employee1 where eid=101;
