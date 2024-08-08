@@ -1,0 +1,410 @@
+
+SQL> connect system
+Enter password:
+Connected.
+SQL> create table Employee (Emp_id int,Emp_name varchar(20),Emp_salary number(10) , DNO number(5));
+create table Employee (Emp_id int,Emp_name varchar(20),Emp_salary number(10) , DNO number(5))
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL> select * from Employee;
+
+    EMP_ID EMP_NAME                 SALARY
+---------- -------------------- ----------
+       101 Abi                        5000
+       102 Banu                       6000
+       103 Kavi                       7000
+       104 Meena                      4000
+       105 Rahul                      6000
+       106                            3000
+
+6 rows selected.
+
+SQL> drop table Employee;
+
+Table dropped.
+
+SQL> create table Employee (Emp_id int,Emp_name varchar(20),Emp_salary number(10) , DNO number(5));
+
+Table created.
+
+SQL> insert into Employee values (101 , 'Priya' , 7000 , 10);
+
+1 row created.
+
+SQL> insert into Employee values (102 , 'Raj' , 3000 , 10);
+
+1 row created.
+
+SQL> insert into Employee values (103 , 'Kumar' , 4000 , 20);
+
+1 row created.
+
+SQL> insert into Employee values (104 , 'Vijay' , 5000 , 20);
+
+1 row created.
+
+SQL> insert into Employee values (105 , 'Ajay' , 6000 , 30);
+
+1 row created.
+
+SQL> insert into Employee (Emp_id , Emp_name , Emp_salary , DNO) values (106 , 6000 , 30);
+insert into Employee (Emp_id , Emp_name , Emp_salary , DNO) values (106 , 6000 , 30)
+                                                            *
+ERROR at line 1:
+ORA-00947: not enough values
+
+
+SQL> insert into Employee (Emp_id , Emp_salary , DNO) values (106 , 6000 , 30);
+
+1 row created.
+
+SQL> select * from Employee;
+
+    EMP_ID EMP_NAME             EMP_SALARY        DNO
+---------- -------------------- ---------- ----------
+       101 Priya                      7000         10
+       102 Raj                        3000         10
+       103 Kumar                      4000         20
+       104 Vijay                      5000         20
+       105 Ajay                       6000         30
+       106                            6000         30
+
+6 rows selected.
+
+SQL> select DNO , count(*) from Employee group by DNO;
+
+       DNO   COUNT(*)
+---------- ----------
+        30          2
+        20          2
+        10          2
+
+SQL> select DNO , count(*) , sum(Emp_salary) , avg(Emp_salary) , min(Emp_salary) , max(Emp_salary) from Employee group by DNO;
+
+       DNO   COUNT(*) SUM(EMP_SALARY) AVG(EMP_SALARY) MIN(EMP_SALARY)
+---------- ---------- --------------- --------------- ---------------
+MAX(EMP_SALARY)
+---------------
+        30          2           12000            6000            6000
+           6000
+
+        20          2            9000            4500            4000
+           5000
+
+        10          2           10000            5000            3000
+           7000
+
+
+SQL> select DNO , count(*) , sum(Emp_salary) , avg(Emp_salary) , min(Emp_salary) , max(Emp_salary) from Employee group by DNO;
+
+       DNO   COUNT(*) SUM(EMP_SALARY) AVG(EMP_SALARY) MIN(EMP_SALARY)
+---------- ---------- --------------- --------------- ---------------
+MAX(EMP_SALARY)
+---------------
+        30          2           12000            6000            6000
+           6000
+
+        20          2            9000            4500            4000
+           5000
+
+        10          2           10000            5000            3000
+           7000
+
+
+SQL> select DNO , count(*) , sum(Emp_salary) , avg(Emp_salary) , min(Emp_salary) , max(Emp_salary) from Employee group by order by DNO;
+select DNO , count(*) , sum(Emp_salary) , avg(Emp_salary) , min(Emp_salary) , max(Emp_salary) from Employee group by order by DNO
+                                                                                                                     *
+ERROR at line 1:
+ORA-00936: missing expression
+
+
+SQL>
+SQL> select DNO , count(*) , sum(Emp_salary) , avg(Emp_salary) , min(Emp_salary) , max(Emp_salary) from Employee group by DNO order by DNO;
+
+       DNO   COUNT(*) SUM(EMP_SALARY) AVG(EMP_SALARY) MIN(EMP_SALARY)
+---------- ---------- --------------- --------------- ---------------
+MAX(EMP_SALARY)
+---------------
+        10          2           10000            5000            3000
+           7000
+
+        20          2            9000            4500            4000
+           5000
+
+        30          2           12000            6000            6000
+           6000
+
+
+SQL> select DNO , coount(*) , sum(Emp_salary) , avg(Emp_salary) , min(Emp_salary) , max(Emp_salary) from Employee group by DNO having min(Emp_salary) 3000 order by DNO;
+select DNO , coount(*) , sum(Emp_salary) , avg(Emp_salary) , min(Emp_salary) , max(Emp_salary) from Employee group by DNO having min(Emp_salary) 3000 order by DNO
+                    *
+ERROR at line 1:
+ORA-00936: missing expression
+
+
+SQL> select DNO , coount(*) , sum(Emp_salary) , avg(Emp_salary) , min(Emp_salary) , max(Emp_salary) from Employee group by DNO having max(Emp_salary)>3000 order by DNO;
+select DNO , coount(*) , sum(Emp_salary) , avg(Emp_salary) , min(Emp_salary) , max(Emp_salary) from Employee group by DNO having max(Emp_salary)>3000 order by DNO
+                    *
+ERROR at line 1:
+ORA-00936: missing expression
+
+
+SQL> select DNO , coount(*) , sum(Emp_salary) , avg(Emp_salary) , min(Emp_salary) , max(Emp_salary) from Employee group by DNO having max(Emp_salary)>3000 order by DNO;
+select DNO , coount(*) , sum(Emp_salary) , avg(Emp_salary) , min(Emp_salary) , max(Emp_salary) from Employee group by DNO having max(Emp_salary)>3000 order by DNO
+                    *
+ERROR at line 1:
+ORA-00936: missing expression
+
+
+SQL> select DNO , coount(*) , sum(Emp_salary) , avg(Emp_salary) , min(Emp_salary) , max(Emp_salary) from Employee group by DNO having min(Emp_salary)>3000 order by DNO;
+select DNO , coount(*) , sum(Emp_salary) , avg(Emp_salary) , min(Emp_salary) , max(Emp_salary) from Employee group by DNO having min(Emp_salary)>3000 order by DNO
+                    *
+ERROR at line 1:
+ORA-00936: missing expression
+
+
+SQL> select DNO , count(*) , sum(Emp_salary) , avg(Emp_salary) , min(Emp_salary) , max(Emp_salary) from Employee group by DNO having max(Emp_salary)>3000 order by DNO;
+
+       DNO   COUNT(*) SUM(EMP_SALARY) AVG(EMP_SALARY) MIN(EMP_SALARY)
+---------- ---------- --------------- --------------- ---------------
+MAX(EMP_SALARY)
+---------------
+        10          2           10000            5000            3000
+           7000
+
+        20          2            9000            4500            4000
+           5000
+
+        30          2           12000            6000            6000
+           6000
+
+
+SQL> create table Student(reg_no number(5) primary key,stud_name varchar2(20) not null,stuf_email varchar2(20) unique, stud_age number(3) check(stud_age>0),stud_location varchar2(20) default 'Erode');
+
+Table created.
+
+SQL> insert into Student (101,'Priya','guru@gmail.com',0);
+insert into Student (101,'Priya','guru@gmail.com',0)
+                     *
+ERROR at line 1:
+ORA-00928: missing SELECT keyword
+
+
+SQL> insert into Student values (101,'Priya','guru@gmail.com',0);
+insert into Student values (101,'Priya','guru@gmail.com',0)
+            *
+ERROR at line 1:
+ORA-00947: not enough values
+
+
+SQL> insert into Student values (101,'Priya','guru@gmail.com',0,'');
+insert into Student values (101,'Priya','guru@gmail.com',0,'')
+*
+ERROR at line 1:
+ORA-02290: check constraint (SYSTEM.SYS_C006999) violated
+
+
+SQL> insert into Student values (101,'Priya','priya@gmail.com',0,'chennai');
+insert into Student values (101,'Priya','priya@gmail.com',0,'chennai')
+*
+ERROR at line 1:
+ORA-02290: check constraint (SYSTEM.SYS_C006999) violated
+
+
+SQL> insert into Student values (102,'Priya','priya@gmail.com',1,'chennai');
+
+1 row created.
+
+SQL> insert into Student values (103,'roy','roy@gmail.com',3,'');
+
+1 row created.
+
+SQL> insert into Student values (101,'meena','priya@gmail.com',0,'chennai');
+insert into Student values (101,'meena','priya@gmail.com',0,'chennai')
+*
+ERROR at line 1:
+ORA-02290: check constraint (SYSTEM.SYS_C006999) violated
+
+
+SQL> select * Student;
+select * Student
+         *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> select * from Student;
+
+    REG_NO STUD_NAME            STUF_EMAIL             STUD_AGE
+---------- -------------------- -------------------- ----------
+STUD_LOCATION
+--------------------
+       102 Priya                priya@gmail.com               1
+chennai
+
+       103 roy                  roy@gmail.com                 3
+
+
+
+SQL> drop table Student;
+
+Table dropped.
+
+SQL>
+
+
+
+
+
+
+
+
+
+
+
+
+SQL*Plus: Release 11.2.0.2.0 Production on Thu Aug 8 14:54:06 2024
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+SQL> connect system;
+Enter password:
+Connected.
+SQL>  create table Student(reg_no number(5) primary key,stud_name varchar2(20) not null,stud_email varchar2(20) unique, stud_age number(3) check(stud_age>0),stud_location varchar2(20) default 'Erode');
+
+Table created.
+
+SQL> insert into Student (reg_no,stud_name,stud_email,stud_age,stud_location) values(501,'Mouni','mouni28@gmail.com',32);
+insert into Student (reg_no,stud_name,stud_email,stud_age,stud_location) values(501,'Mouni','mouni28@gmail.com',32)
+                                                                         *
+ERROR at line 1:
+ORA-00947: not enough values
+
+
+SQL>
+SQL> insert into Student (reg_no,stud_name,stud_email,stud_age,stud_location) values(501,'Mouni','mouni28@gmail.com',32,'Bangalore');
+
+1 row created.
+
+SQL> select * from Student;
+
+    REG_NO STUD_NAME            STUD_EMAIL             STUD_AGE
+---------- -------------------- -------------------- ----------
+STUD_LOCATION
+--------------------
+       501 Mouni                mouni28@gmail.com            32
+Bangalore
+
+
+SQL> create table department(dno number(5) primary key,dname varchar2(20));
+
+Table created.
+
+SQL> create table employee(eid number(5) primary key,ename varchar2(20),esalary number(5),dno number(5),foreign key(dno) references department(dno));
+create table employee(eid number(5) primary key,ename varchar2(20),esalary number(5),dno number(5),foreign key(dno) references department(dno))
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL> create table employees(eid number(5) primary key,ename varchar2(20),esalary number(5),dno number(5),foreign key(dno) references department(dno));
+
+Table created.
+
+SQL> insert into department values(10,'CSE');
+
+1 row created.
+
+SQL> insert into employees values(101,'Priya',5000,10);
+
+1 row created.
+
+SQL> create view myview as select * from employees where dno=10;
+
+View created.
+
+SQL> select * from employees;
+
+       EID ENAME                   ESALARY        DNO
+---------- -------------------- ---------- ----------
+       101 Priya                      5000         10
+
+SQL> create or replace view myview as select eid,ename,esalary from employees where ename='mouni';
+
+View created.
+
+SQL> select * from employees;
+
+       EID ENAME                   ESALARY        DNO
+---------- -------------------- ---------- ----------
+       101 Priya                      5000         10
+
+SQL> update employees set dno=20 where eid=101;
+update employees set dno=20 where eid=101
+*
+ERROR at line 1:
+ORA-02291: integrity constraint (SYSTEM.SYS_C007012) violated - parent key not
+found
+
+
+SQL> update employees set dno=20 where eid=101;
+update employees set dno=20 where eid=101
+*
+ERROR at line 1:
+ORA-02291: integrity constraint (SYSTEM.SYS_C007012) violated - parent key not
+found
+
+
+SQL> drop table myview;
+drop table myview
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> select Emp_id as "Employee id",Emp_name as "Employee name" from Employee;
+
+Employee id Employee name
+----------- --------------------
+        101 Priya
+        102 Raj
+        103 Kumar
+        104 Vijay
+        105 Ajay
+        106
+
+6 rows selected.
+
+SQL> select DNO, count(*) from Employee group by DNO;
+
+       DNO   COUNT(*)
+---------- ----------
+        30          2
+        20          2
+        10          2
+
+SQL> select DNO,count(*) as "Total No of Employees" from Employee group by DNO;
+
+       DNO Total No of Employees
+---------- ---------------------
+        30                     2
+        20                     2
+        10                     2
+
+SQL>
+
+
+
+
+
+
+
+
+
+
+
+
+
