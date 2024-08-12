@@ -18,4 +18,6 @@ for(int i=0;i<arr.length;i++)
 sum=sum+arr[i];
 }
 System.out.println("Sum " +sum);
+
+sc.close();
 }}

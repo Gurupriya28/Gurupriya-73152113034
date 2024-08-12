@@ -13,5 +13,6 @@ System.out.println(num1 + " is the Biggest Number ");
 else{
 System.out.println(num2 + " is the Biggest Number");
 }
+sc.close();
 }
 }

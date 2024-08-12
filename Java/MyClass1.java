@@ -15,5 +15,7 @@ employeeSalary=sc.nextFloat();
    System.out.println("Employee id: " +employeeId);
    System.out.println("Employee name: " + employeeName);
  System.out.println("Employee Salary:"  +employeeSalary);
+
+ sc.close();;
     }
  }
